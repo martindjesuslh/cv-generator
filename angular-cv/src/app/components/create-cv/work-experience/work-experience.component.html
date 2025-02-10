@@ -1,0 +1,9 @@
+<div>
+  <h3 class="font-medium text-2xl mb-1 capitalize">
+    {{ dates.start }} - {{ dates.end }}: {{ where.name }} <span class="font-normal">{{ where.location }}</span>
+  </h3>
+  <h3 class="capitalize font-medium text-2xl">Job Title: {{ jobTitle }}</h3>
+  <ul class="custom-list pr-0 leading-5">
+    <li *ngFor="let item of responsibilities">{{ item }}</li>
+  </ul>
+</div>

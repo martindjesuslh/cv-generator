@@ -1,1 +1,66 @@
-<p>create-cv works!</p>
+<div class="py-4 w-[90%] block mx-auto">
+  <app-header></app-header>
+
+  <app-section title="Professional Profile">
+    <app-text-block
+      content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque, consectetur culpa qui officiis asperiores minus rem modi fugiat, illum inventore corporis quia!"
+    ></app-text-block>
+  </app-section>
+  <app-section title="Key competencies">
+    <div class="flex justify-between">
+      <app-key-competencies
+        title="title0"
+        [competencies]="['Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor',]"
+      ></app-key-competencies>
+
+      <app-key-competencies
+        title="title1"
+        [competencies]="['Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor',]"
+      ></app-key-competencies>
+
+      <app-key-competencies
+        title="title2"
+        [competencies]="['Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor',]"
+      ></app-key-competencies>
+    </div>
+  </app-section>
+  <app-section title="Work Experience">
+    <app-work-experience
+      [dates]="{ start: 'mount 2013', end: 'mount 2015'}"
+      [where]="{ name: 'company', location: 'Dublin'}"
+      jobTitle="Job title"
+      [responsibilities]="['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,',]"
+    ></app-work-experience>
+
+    <app-work-experience
+      [dates]="{ start: 'mount 2013', end: 'mount 2015'}"
+      [where]="{ name: 'company', location: 'Dublin'}"
+      jobTitle="Job title"
+      [responsibilities]="['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,',]"
+    ></app-work-experience>
+
+    <app-work-experience
+      [dates]="{ start: 'mount 2013', end: 'mount 2015'}"
+      [where]="{ name: 'company', location: 'Dublin'}"
+      jobTitle="Job title"
+      [responsibilities]="['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque,',]"
+    ></app-work-experience>
+  </app-section>
+  <app-section title="Edutaction">
+    <app-education
+      [school]="{ start: 'mount 2013', end: 'mount 2015', courseName: 'CouseName' }"
+      description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consectetur dolorum! Architecto totam officia quibusdam impedit. Laudantium, sint corrupti velit soluta quisquam iure aliquid, doloremque, necessitatibus enim incidunt omnis adipisci."
+    ></app-education>
+  </app-section>
+  <app-section title="Additional information">
+    <app-hobbies-and-interests
+      [information]="[{ title: 'Training courses', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consectetur dolorum!'}, { title: 'Training courses', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consectetur dolorum!'}, { title: 'Training courses', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consectetur dolorum!'}, { title: 'Training courses', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consectetur dolorum!'}]"
+    ></app-hobbies-and-interests>
+  </app-section>
+
+  <app-section title="Additional information">
+    <app-additional-information
+      description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consectetur dolorum! Architecto totam officia quibusdam impedit. Laudantium, sint corrupti velit soluta quisquam iure aliquid, doloremque, necessitatibus enim incidunt omnis adipisci."
+    ></app-additional-information>
+  </app-section>
+</div>
