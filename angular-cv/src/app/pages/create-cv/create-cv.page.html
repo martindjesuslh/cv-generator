@@ -1,4 +1,4 @@
-<div class="py-4 w-[90%] block mx-auto">
+<div #contentPrint class="py-4 w-[90%] block mx-auto">
   <app-header></app-header>
 
   <app-section title="Professional Profile">
@@ -63,4 +63,14 @@
       description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consectetur dolorum! Architecto totam officia quibusdam impedit. Laudantium, sint corrupti velit soluta quisquam iure aliquid, doloremque, necessitatibus enim incidunt omnis adipisci."
     ></app-additional-information>
   </app-section>
+  <div *ngIf="imageUrl">
+    <img [src]="imageUrl" class="w-auto" />
+  </div>
+
+  <div *ngIf="!printMode" class="w-full flex justify-center">
+    <button mat-flat-button (click)="handlePrint()">
+      Print
+      <mat-icon>print</mat-icon>
+    </button>
+  </div>
 </div>
