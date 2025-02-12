@@ -23,7 +23,8 @@
       "@components/*": ["src/app/components/*"],
       "@styles/*": ["src/app/styles/*"],
       "@interfaces/*": ["src/app/interfaces/*"],
-      "@services/*": ["src/app/services/*"]
+      "@services/*": ["src/app/services/*"],
+      "@utils/*": ["src/app/utils/*"]
     }
   },
 

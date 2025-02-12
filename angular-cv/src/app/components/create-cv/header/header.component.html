@@ -1,6 +1,21 @@
-<header class="leading-3 mb-6 flex flex-col mx-auto w-fit">
-  <p><strong class="mr-1">Name:</strong>{{ myForm.fullName }}</p>
-  <p><strong class="mr-1">Address:</strong>{{ myForm.address }}</p>
-  <p><strong class="mr-1">Email:</strong>{{ myForm.email }}</p>
-  <p><strong class="mr-1">Phone:</strong>{{ myForm.phone }}</p>
+<header *ngIf="!isEditMode; else showForm" class="leading-3 mb-6 flex flex-col mx-auto w-fit">
+  <p><strong class="mr-1">Name:</strong>{{ data.fullName }}</p>
+  <p><strong class="mr-1">Address:</strong>{{ data.address }}</p>
+  <p><strong class="mr-1">Email:</strong>{{ data.email }}</p>
+  <p><strong class="mr-1">Phone:</strong>{{ data.phone }}</p>
 </header>
+
+<ng-template #showForm>
+  <form>
+    <app-input
+      label="fullName"
+      placeholder="Martín De Jesús Leaños Hernández"
+      [control]="myForm.get('address')"
+    >
+    </app-input>
+    <button mat-icon-button>
+      <mat-icon>send</mat-icon>
+      Next
+    </button>
+  </form>
+</ng-template>

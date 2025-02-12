@@ -11,6 +11,10 @@ export class CreateCvPage {
   public printMode: boolean = false;
   public imageUrl: string = '';
 
+  public steps: Record<StepsFormType, boolean> = {
+    header: true,
+  };
+
   @ViewChild('contentPrint') contentPrint!: ElementRef<HTMLDivElement>;
 
   constructor(private _printServices: PrintService) {}
@@ -29,3 +33,5 @@ export class CreateCvPage {
     }, 50);
   }
 }
+
+type StepsFormType = 'header';
