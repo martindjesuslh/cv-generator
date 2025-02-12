@@ -34,7 +34,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["@angular/material/prebuilt-themes/azure-blue.css", "@styles/global.css"],
+            "styles": ["@styles/global.css"],
             "scripts": []
           },
           "configurations": {
@@ -87,7 +87,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["@angular/material/prebuilt-themes/azure-blue.css", "@styles/global.css"],
+            "styles": ["@styles/global.css"],
             "scripts": []
           }
         }
