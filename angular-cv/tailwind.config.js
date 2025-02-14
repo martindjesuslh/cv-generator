@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  important: true,
   content: ['./src/**/*.{html,ts}'],
   theme: {
     extend: {
@@ -15,5 +14,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-primeui')],
 };

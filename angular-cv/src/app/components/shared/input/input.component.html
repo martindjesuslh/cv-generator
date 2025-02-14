@@ -1,20 +1,25 @@
-<mat-form-field>
-  <mat-label>{{ label }}</mat-label>
+<div class="flex flex-col gap-2">
+  <label class="font-semibold">{{ label }}</label>
   <input
+    pInputText
+    [class]="className"
     [type]="type"
     [placeholder]="placeholder"
-    (input)="handleChange($event)"
-    matInput
     [value]="control?.value"
+    (input)="handleChange($event)"
+    (blur)="handleBlur()"
   />
-  <button
+  <!-- <button
     *ngIf="buttonIconName"
     matSuffix
     mat-icon-button
     aria-label="Edit"
     (click)="handleClickButtonEdit()"
-  ></button>
-  <mat-error *ngIf="errorMessage">
-    {{ errorMessage }}
-  </mat-error>
-</mat-form-field>
+  ></button> -->
+  <small *ngIf="errorMessage; else showError">{{ helpText }} </small>
+  <ng-template #showError>
+    <small class="text-red-700" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </small>
+  </ng-template>
+</div>

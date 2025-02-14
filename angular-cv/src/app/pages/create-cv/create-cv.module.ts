@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { CreateCvRoutingModule } from './create-cv-routing.module';
 //modules
 import { CreateCvComponentsModule } from '@components/create-cv/create-cv-components.module';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
+import { ButtonModule } from 'primeng/button';
+
 //services
 import { PrintService } from '@services/print.service';
 //pages
@@ -13,7 +13,7 @@ import { CreateCvPage } from './create-cv.page';
 
 @NgModule({
   declarations: [CreateCvPage],
-  imports: [CommonModule, CreateCvRoutingModule, CreateCvComponentsModule, MatButtonModule, MatIcon],
+  imports: [CommonModule, CreateCvRoutingModule, CreateCvComponentsModule, ButtonModule],
   providers: [PrintService],
 })
 export class CreateCvModule {}

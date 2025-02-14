@@ -1,6 +1,6 @@
 <div #contentPrint class="py-4 w-[90%] block mx-auto">
   <app-header [edit]="steps.header"></app-header>
-
+  <!--
   <app-section title="Professional Profile">
     <app-text-block
       content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque, consectetur culpa qui officiis asperiores minus rem modi fugiat, illum inventore corporis quia!"
@@ -65,12 +65,9 @@
   </app-section>
   <div *ngIf="imageUrl">
     <img [src]="imageUrl" class="w-auto" />
-  </div>
+  </div> -->
 
   <div *ngIf="!printMode" class="w-full flex justify-center">
-    <button mat-flat-button (click)="handlePrint()">
-      Print
-      <mat-icon>print</mat-icon>
-    </button>
+    <p-button (click)="handlePrint()" iconPos="right" icon="pi pi-send" label="send"></p-button>
   </div>
 </div>

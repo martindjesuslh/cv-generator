@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import type { AbstractControl } from '@angular/forms';
-import type { MatInput } from '@angular/material/input';
 
 import { getErrorMessage } from '@utils/forms';
 
@@ -13,13 +12,17 @@ export class InputComponent {
   @Input() control: AbstractControl | null = null;
   @Input() label: string = '';
   @Input() placeholder: string = '';
-  @Input() type: MatInput['type'] = 'text';
+  @Input() type: HTMLInputElement['type'] = 'text';
   @Input() buttonIconName?: string;
-
+  @Input() helpText?: string;
   @Output() clickButton = new EventEmitter<void>();
 
   get errorMessage(): string | null {
     return getErrorMessage(this.control);
+  }
+
+  get className() {
+    return this.control?.invalid ? 'ng-invalid ng-dirty' : '';
   }
 
   handleChange(e: Event) {
@@ -27,6 +30,10 @@ export class InputComponent {
 
     const { value } = e.target as HTMLInputElement;
     this.control.setValue(value, { emitValue: true });
+  }
+
+  handleBlur() {
+    this.control?.markAsTouched();
   }
 
   handleClickButtonEdit() {

@@ -6,16 +6,13 @@
 </header>
 
 <ng-template #showForm>
-  <form>
+  <form class="w-full">
     <app-input
       label="fullName"
       placeholder="Martín De Jesús Leaños Hernández"
       [control]="myForm.get('address')"
     >
     </app-input>
-    <button mat-icon-button>
-      <mat-icon>send</mat-icon>
-      Next
-    </button>
+    <button pButton>Next</button>
   </form>
 </ng-template>
