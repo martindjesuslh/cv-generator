@@ -1,4 +1,4 @@
-<header *ngIf="!isEditMode; else showForm" class="leading-3 mb-6 flex flex-col mx-auto w-fit">
+<header *ngIf="!isEditMode; else showForm" class="leading-1 mb-6 flex flex-col mx-auto w-fit animate-fadein">
   <p><strong class="mr-1">Name:</strong>{{ data.fullName }}</p>
   <p><strong class="mr-1">Address:</strong>{{ data.address }}</p>
   <p><strong class="mr-1">Email:</strong>{{ data.email }}</p>
@@ -6,13 +6,28 @@
 </header>
 
 <ng-template #showForm>
-  <form class="w-full">
+  <form class="w-full grid grid-cols-2 gap-2 animate-fadein">
+    <app-input label="fullName" placeholder="Jhon Smith" [control]="myForm.get('fullName')"> </app-input>
     <app-input
-      label="fullName"
-      placeholder="Martín De Jesús Leaños Hernández"
+      label="Address"
+      placeholder="100 O'Connell, Dublin, D01 T2X2"
       [control]="myForm.get('address')"
     >
     </app-input>
-    <button pButton>Next</button>
+    <app-input label="Email" placeholder="name@dominian.com" [control]="myForm.get('email')"> </app-input>
+    <app-input type="number" label="Phone" placeholder="8544223311" [control]="myForm.get('phone')">
+    </app-input>
+
+    <div class="col-span-2">
+      <p-button
+        (onClick)="handleComplete()"
+        [disabled]="myForm.invalid"
+        label="Next"
+        icon="pi pi-arrow-right"
+        iconPos="right"
+      >
+      </p-button>
+      <p-button (onClick)="handlePatch()" icon="pi pi-arrow-right" iconPos="right" label="Test"> </p-button>
+    </div>
   </form>
 </ng-template>

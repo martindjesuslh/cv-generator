@@ -1,5 +1,12 @@
 import type { AbstractControl, FormGroup } from '@angular/forms';
 
+interface Data {
+  obj: Record<string, string>;
+  form: FormGroup;
+}
+
+type TransportDataDirection = 'obj' | 'form';
+
 const ERROR_MESSAGES = {
   required: 'This field is required.',
   email: 'Please enter a valid email address.',
@@ -11,7 +18,7 @@ const ERROR_MESSAGES = {
 };
 
 export const getErrorMessage = (control: AbstractControl | null) => {
-  if (!control || !control.errors) return null;
+  if (!control || !control.errors || !control.touched) return null;
 
   if (control.errors['required']) return ERROR_MESSAGES.required;
 
@@ -36,21 +43,14 @@ export const dataTransferForm = (data: Data, from: TransportDataDirection) => {
   let fromTemp = { ...data.form.value };
   let objTemp = { ...data.obj };
 
-  for (const k of Object.keys(data.obj))
+  for (const k of Object.keys(objTemp))
     if (from === 'obj') fromTemp[k] = data.obj[k];
-    else data.obj[k] = objTemp[k];
+    else objTemp[k] = fromTemp[k];
 
   if (from === 'obj') {
     data.form.patchValue(fromTemp);
     data.form.updateValueAndValidity();
   }
-  
+
   return objTemp;
 };
-
-interface Data {
-  obj: Record<string, string>;
-  form: FormGroup;
-}
-
-type TransportDataDirection = 'obj' | 'form';

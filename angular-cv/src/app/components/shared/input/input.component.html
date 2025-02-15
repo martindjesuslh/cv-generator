@@ -16,9 +16,9 @@
     aria-label="Edit"
     (click)="handleClickButtonEdit()"
   ></button> -->
-  <small *ngIf="errorMessage; else showError">{{ helpText }} </small>
+  <small *ngIf="!errorMessage; else showError">{{ helpText }} </small>
   <ng-template #showError>
-    <small class="text-red-700" *ngIf="errorMessage">
+    <small class="text-red-700">
       {{ errorMessage }}
     </small>
   </ng-template>

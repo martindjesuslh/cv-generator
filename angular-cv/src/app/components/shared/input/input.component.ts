@@ -22,7 +22,7 @@ export class InputComponent {
   }
 
   get className() {
-    return this.control?.invalid ? 'ng-invalid ng-dirty' : '';
+    return this.control?.invalid && this.control.touched ? 'ng-invalid ng-dirty' : '';
   }
 
   handleChange(e: Event) {
