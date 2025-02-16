@@ -1,6 +1,18 @@
 <div class="flex flex-col gap-2">
   <label class="font-semibold">{{ label }}</label>
+  <ng-template #textInput>
+    <input
+      pInputText
+      [class]="className"
+      [type]="type"
+      [placeholder]="placeholder"
+      [value]="control?.value"
+      (input)="handleChange($event)"
+      (blur)="handleBlur()"
+    />
+  </ng-template>
   <input
+    *ngIf="type === 'textarea'; else textInput"
     pInputText
     [class]="className"
     [type]="type"

@@ -1,11 +1,25 @@
-<div #contentPrint class="py-4 w-[90%] block mx-auto">
-  <app-header [edit]="steps.header"></app-header>
-  <!--
+<div #contentPrint class="p-4 container block mx-auto rounded shadow-xl bg-white">
+  <app-header [edit]="stepsEdit.header" (runComplete)="handleCompleteSection('header')">
+    <p-button
+      (onClick)="handleEditSection('header')"
+      variant="text"
+      icon="pi pi-pencil"
+      class="absolute top-0 right-[-4rem] animate-fadein"
+    ></p-button>
+  </app-header>
+
   <app-section title="Professional Profile">
-    <app-text-block
-      content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque, aut provident blanditiis accusantium optio tempora neque, consectetur culpa qui officiis asperiores minus rem modi fugiat, illum inventore corporis quia!"
-    ></app-text-block>
+    <app-text-block [edit]="stepsEdit.profile" (runComplete)="handleCompleteSection('profile')">
+      <p-button
+        *ngIf="stepsEdit.profile"
+        (onClick)="handleEditSection('header')"
+        variant="text"
+        icon="pi pi-pencil"
+        class="absolute top-0 right-0 animate-fadein"
+      ></p-button>
+    </app-text-block>
   </app-section>
+  <!--
   <app-section title="Key competencies">
     <div class="flex justify-between">
       <app-key-competencies

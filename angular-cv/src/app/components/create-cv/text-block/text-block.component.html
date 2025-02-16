@@ -1,1 +1,15 @@
-<p>{{ content }} {{ content }}</p>
+<p *ngIf="!isEditMode; else showForm">{{ description }}</p>
+
+<ng-template #showForm>
+  <div class="relative">
+    <app-input type="textarea" label="Description" [control]="descriptionForm"></app-input>
+    <ng-content *ngIf="!isEditMode"></ng-content>
+    <p-button
+      (onClick)="handleComplete()"
+      [disabled]="descriptionForm.invalid"
+      label="Next"
+      icon="pi pi-arrow-right"
+      iconPos="right"
+    ></p-button>
+  </div>
+</ng-template>

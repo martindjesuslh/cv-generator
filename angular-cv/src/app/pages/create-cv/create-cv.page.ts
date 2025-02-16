@@ -11,13 +11,27 @@ export class CreateCvPage {
   public printMode: boolean = false;
   public imageUrl: string = '';
 
-  public steps: Record<StepsFormType, boolean> = {
-    header: true,
+  public stepsEdit: Record<StepsFormType, boolean> = {
+    header: false,
+    profile: true,
+    competencies: true,
   };
 
   @ViewChild('contentPrint') contentPrint!: ElementRef<HTMLDivElement>;
 
   constructor(private _printServices: PrintService) {}
+
+  handleCompleteSection(section: StepsFormType) {
+    const keys = Object.keys(this.stepsEdit) as StepsFormType[];
+
+    for (const k of keys) this.stepsEdit[k] = section !== k;
+  }
+
+  handleEditSection(section: StepsFormType) {
+    const keys = Object.keys(this.stepsEdit) as StepsFormType[];
+
+    for (const k of keys) this.stepsEdit[k] = section === k;
+  }
 
   handlePrint() {
     if (!this.contentPrint) throw new Error();
@@ -34,4 +48,4 @@ export class CreateCvPage {
   }
 }
 
-type StepsFormType = 'header';
+type StepsFormType = 'header' | 'profile' | 'competencies';

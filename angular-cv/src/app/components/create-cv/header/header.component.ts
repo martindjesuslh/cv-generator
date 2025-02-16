@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators as V } from '@angular/forms';
 //utilities
 import { dataTransferForm } from '@utils/forms';
@@ -36,7 +36,6 @@ export class HeaderComponent {
     if (this.myForm.invalid) return;
 
     const obj = dataTransferForm({ form: this.myForm, obj: this.data }, 'form');
-    console.log({ obj });
 
     this.data = obj as Record<HeaderFields, string>;
     this.isEditMode = false;

@@ -1,8 +1,9 @@
-<header *ngIf="!isEditMode; else showForm" class="leading-1 mb-6 flex flex-col mx-auto w-fit animate-fadein">
+<header *ngIf="!isEditMode; else showForm" class="relative leading-1 mb-6 flex flex-col mx-auto w-fit animate-fadein">
   <p><strong class="mr-1">Name:</strong>{{ data.fullName }}</p>
   <p><strong class="mr-1">Address:</strong>{{ data.address }}</p>
   <p><strong class="mr-1">Email:</strong>{{ data.email }}</p>
   <p><strong class="mr-1">Phone:</strong>{{ data.phone }}</p>
+  <ng-content> </ng-content>
 </header>
 
 <ng-template #showForm>
