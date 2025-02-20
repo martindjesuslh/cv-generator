@@ -1,26 +1,17 @@
 <div #contentPrint class="p-4 container block mx-auto rounded shadow-xl bg-white">
-  <app-header [edit]="stepsEdit.header" (runComplete)="handleCompleteSection('header')">
-    <p-button
-      (onClick)="handleEditSection('header')"
-      variant="text"
-      icon="pi pi-pencil"
-      class="absolute top-0 right-[-4rem] animate-fadein"
-    ></p-button>
-  </app-header>
+  <div class="relative">
+    <app-header [edit]="stepOrder[0].edit" (runComplete)="handleNextSection(0)"> </app-header>
+    <app-button-edit *ngIf="stepOrder[0].complete" (runEdit)="handleEditStep(0)"></app-button-edit>
+  </div>
 
-  <app-section title="Professional Profile">
-    <app-text-block [edit]="stepsEdit.profile" (runComplete)="handleCompleteSection('profile')">
-      <p-button
-        *ngIf="stepsEdit.profile"
-        (onClick)="handleEditSection('header')"
-        variant="text"
-        icon="pi pi-pencil"
-        class="absolute top-0 right-0 animate-fadein"
-      ></p-button>
-    </app-text-block>
+  <app-section *ngIf="true" title="Professional Profile">
+    <div class="relative">
+      <app-text-block [edit]="stepOrder[1].edit" (runComplete)="handleNextSection(1)"> </app-text-block>
+      <app-button-edit *ngIf="stepOrder[1].complete" (runEdit)="handleEditStep(1)"></app-button-edit>
+    </div>
   </app-section>
-  <!--
-  <app-section title="Key competencies">
+
+  <app-section *ngIf="stepOrder[2].show" title="Key competencies">
     <div class="flex justify-between">
       <app-key-competencies
         title="title0"
@@ -38,6 +29,7 @@
       ></app-key-competencies>
     </div>
   </app-section>
+  <!--
   <app-section title="Work Experience">
     <app-work-experience
       [dates]="{ start: 'mount 2013', end: 'mount 2015'}"

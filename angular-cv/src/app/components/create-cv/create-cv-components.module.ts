@@ -5,7 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedComponentsModule } from '@components/shared/shared-components.module';
 //primeNG
 import { ButtonModule } from 'primeng/button';
-
 //components
 import { AdditionalInformationComponent } from 'src/app/additional-information/additional-information.component';
 import { EducationComponent } from './education/education.component';
@@ -15,10 +14,12 @@ import { KeyCompetenciesComponent } from './key-competencies/key-competencies.co
 import { SectionComponent } from './section/section.component';
 import { TextBlockComponent } from './text-block/text-block.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
+import { ButtonEditComponent } from './button-edit/button-edit.component';
 
 @NgModule({
   declarations: [
     AdditionalInformationComponent,
+    ButtonEditComponent,
     EducationComponent,
     HeaderComponent,
     HobbiesAndInterestsComponent,
@@ -30,6 +31,7 @@ import { WorkExperienceComponent } from './work-experience/work-experience.compo
   imports: [CommonModule, ButtonModule, ReactiveFormsModule, SharedComponentsModule, ReactiveFormsModule],
   exports: [
     AdditionalInformationComponent,
+    ButtonEditComponent,
     EducationComponent,
     HeaderComponent,
     HobbiesAndInterestsComponent,

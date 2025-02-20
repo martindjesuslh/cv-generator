@@ -10,27 +10,38 @@ import { PrintService } from '@services/print.service';
 export class CreateCvPage {
   public printMode: boolean = false;
   public imageUrl: string = '';
+  public stepOrder: StepOrdersControl[] = [
+    { edit: true, complete: false, show: true }, //header
+    { edit: false, complete: false, show: false }, //profile
+    { edit: false, complete: false, show: false }, //competencies
+  ];
+  public enablePrint: boolean = false;
 
-  public stepsEdit: Record<StepsFormType, boolean> = {
-    header: false,
-    profile: true,
-    competencies: true,
-  };
+  get buttonShow() {
+    return this.stepOrder[1].complete;
+  }
 
   @ViewChild('contentPrint') contentPrint!: ElementRef<HTMLDivElement>;
 
   constructor(private _printServices: PrintService) {}
 
-  handleCompleteSection(section: StepsFormType) {
-    const keys = Object.keys(this.stepsEdit) as StepsFormType[];
+  handleEditStep(currentStep: number): void {
+    this.enablePrint = false;
 
-    for (const k of keys) this.stepsEdit[k] = section !== k;
+    this.stepOrder = this.stepOrder.map(({ show, ...rest }, i) => {
+      return currentStep === i
+        ? { show, complete: false, edit: true }
+        : { show, complete: rest.complete, edit: false };
+    });
   }
 
-  handleEditSection(section: StepsFormType) {
-    const keys = Object.keys(this.stepsEdit) as StepsFormType[];
+  handleNextSection(currentStep: number): void {
+    this.stepOrder[currentStep] = { complete: true, edit: false, show: true };
 
-    for (const k of keys) this.stepsEdit[k] = section === k;
+    const nextStep = this.stepOrder.findIndex(({ complete }) => !complete);
+
+    if (nextStep < 0) this.enablePrint = true;
+    else this.stepOrder[nextStep] = { complete: false, edit: true, show: true };
   }
 
   handlePrint() {
@@ -49,3 +60,9 @@ export class CreateCvPage {
 }
 
 type StepsFormType = 'header' | 'profile' | 'competencies';
+
+interface StepOrdersControl {
+  edit: boolean;
+  show: boolean;
+  complete: boolean;
+}

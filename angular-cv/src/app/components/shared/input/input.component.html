@@ -11,16 +11,15 @@
       (blur)="handleBlur()"
     />
   </ng-template>
-  <input
+  <textarea
     *ngIf="type === 'textarea'; else textInput"
-    pInputText
+    pTextarea
     [class]="className"
-    [type]="type"
     [placeholder]="placeholder"
     [value]="control?.value"
     (input)="handleChange($event)"
     (blur)="handleBlur()"
-  />
+  ></textarea>
   <!-- <button
     *ngIf="buttonIconName"
     matSuffix

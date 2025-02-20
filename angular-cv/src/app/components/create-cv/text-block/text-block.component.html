@@ -1,9 +1,11 @@
-<p *ngIf="!isEditMode; else showForm">{{ description }}</p>
+<div class="relative w-fit mx-auto" *ngIf="!isEditMode; else showForm">
+  <p>{{ description }}</p>
+</div>
 
 <ng-template #showForm>
   <div class="relative">
     <app-input type="textarea" label="Description" [control]="descriptionForm"></app-input>
-    <ng-content *ngIf="!isEditMode"></ng-content>
+
     <p-button
       (onClick)="handleComplete()"
       [disabled]="descriptionForm.invalid"
