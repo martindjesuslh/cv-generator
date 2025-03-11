@@ -6,7 +6,7 @@ import html2canvas from 'html2canvas';
 export class PrintService {
   constructor() {}
 
-  generate(element: HTMLElement, fileName: string): Promise<void> {
+  async generate(element: HTMLElement, fileName: string): Promise<void> {
     return html2canvas(element, { scale: 2 }).then(canvas => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'mm', 'a4');

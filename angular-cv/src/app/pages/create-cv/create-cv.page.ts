@@ -9,17 +9,12 @@ import { PrintService } from '@services/print.service';
 })
 export class CreateCvPage {
   public printMode: boolean = false;
-  public imageUrl: string = '';
+  public enablePrint: boolean = false;
   public stepOrder: StepOrdersControl[] = [
     { edit: true, complete: false, show: true }, //header
     { edit: false, complete: false, show: false }, //profile
-    { edit: false, complete: false, show: false }, //competencies
+    { edit: true, complete: false, show: true }, //competencies
   ];
-  public enablePrint: boolean = false;
-
-  get buttonShow() {
-    return this.stepOrder[1].complete;
-  }
 
   @ViewChild('contentPrint') contentPrint!: ElementRef<HTMLDivElement>;
 

@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./src/**/*.{html,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        extend: '-webkit-fill-available',
+      },
+    },
   },
   plugins: [require('tailwindcss-primeui')],
 };

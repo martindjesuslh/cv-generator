@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedComponentsModule } from '@components/shared/shared-components.module';
 //primeNG
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 //components
 import { AdditionalInformationComponent } from 'src/app/additional-information/additional-information.component';
 import { EducationComponent } from './education/education.component';
@@ -28,7 +29,14 @@ import { ButtonEditComponent } from './button-edit/button-edit.component';
     TextBlockComponent,
     WorkExperienceComponent,
   ],
-  imports: [CommonModule, ButtonModule, ReactiveFormsModule, SharedComponentsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ButtonModule,
+    ConfirmDialogModule,
+    ReactiveFormsModule,
+    SharedComponentsModule,
+    ReactiveFormsModule,
+  ],
   exports: [
     AdditionalInformationComponent,
     ButtonEditComponent,

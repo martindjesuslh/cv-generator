@@ -12,21 +12,8 @@
   </app-section>
 
   <app-section *ngIf="stepOrder[2].show" title="Key competencies">
-    <div class="flex justify-between">
-      <app-key-competencies
-        title="title0"
-        [competencies]="['Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor',]"
-      ></app-key-competencies>
-
-      <app-key-competencies
-        title="title1"
-        [competencies]="['Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor',]"
-      ></app-key-competencies>
-
-      <app-key-competencies
-        title="title2"
-        [competencies]="['Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor','Lorem ipsum dolor',]"
-      ></app-key-competencies>
+    <div class="relative">
+      <app-key-competencies ></app-key-competencies>
     </div>
   </app-section>
   <!--

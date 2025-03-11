@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-2">
+<div class="flex flex-col">
   <label class="font-semibold">{{ label }}</label>
   <ng-template #textInput>
     <input
@@ -20,13 +20,6 @@
     (input)="handleChange($event)"
     (blur)="handleBlur()"
   ></textarea>
-  <!-- <button
-    *ngIf="buttonIconName"
-    matSuffix
-    mat-icon-button
-    aria-label="Edit"
-    (click)="handleClickButtonEdit()"
-  ></button> -->
   <small *ngIf="!errorMessage; else showError">{{ helpText }} </small>
   <ng-template #showError>
     <small class="text-red-700">

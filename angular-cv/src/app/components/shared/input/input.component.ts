@@ -1,6 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import type { AbstractControl } from '@angular/forms';
-
+//utils
 import { getErrorMessage } from '@utils/forms';
 
 @Component({
@@ -13,9 +13,7 @@ export class InputComponent {
   @Input() label: string = '';
   @Input() placeholder: string = '';
   @Input() type: HTMLInputElement['type'] = 'text';
-  @Input() buttonIconName?: string;
   @Input() helpText?: string;
-  @Output() clickButton = new EventEmitter<void>();
 
   get errorMessage(): string | null {
     return getErrorMessage(this.control);
@@ -34,11 +32,5 @@ export class InputComponent {
 
   handleBlur() {
     this.control?.markAsTouched();
-  }
-
-  handleClickButtonEdit() {
-    if (!this.clickButton.observed) return;
-
-    this.clickButton.emit();
   }
 }
